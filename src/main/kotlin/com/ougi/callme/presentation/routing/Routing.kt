@@ -14,7 +14,7 @@ import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
     routing {
-        route("/m") {
+        route("/common") {
             route("/push") {
                 sendPushWithData()
                 sendPushWithMultipleData()
