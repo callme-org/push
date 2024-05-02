@@ -15,7 +15,7 @@ interface FirebaseInitializer {
 class FirebaseInitializerImpl : FirebaseInitializer {
 
     override fun initialize() {
-        val serviceAccount = FileInputStream("./firebaseServiceAccountKey.json")
+        val serviceAccount = FileInputStream("src/main/resources/firebaseServiceAccountKey.json")
 
         val options = FirebaseOptions.builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
