@@ -3,7 +3,6 @@ package com.ougi.callme.presentation.firebase
 import com.google.auth.oauth2.GoogleCredentials
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
-import java.io.FileInputStream
 
 
 interface FirebaseInitializer {
@@ -15,7 +14,7 @@ interface FirebaseInitializer {
 class FirebaseInitializerImpl : FirebaseInitializer {
 
     override fun initialize() {
-        val serviceAccount = FileInputStream("src/main/resources/firebaseServiceAccountKey.json")
+        val serviceAccount = javaClass.classLoader.getResourceAsStream("firebaseServiceAccountKey.json")
 
         val options = FirebaseOptions.builder()
             .setCredentials(GoogleCredentials.fromStream(serviceAccount))
